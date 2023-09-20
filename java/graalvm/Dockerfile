@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$TARGETOS/$TARGETARCH ghcr.io/graalvm/jdk:latest
+FROM        --platform=$TARGETOS/$TARGETARCH ghcr.io/graalvm/jdk-community:latest
 
 LABEL       author="Yamayaki" maintainer="hallo@yamayaki.de"
 
