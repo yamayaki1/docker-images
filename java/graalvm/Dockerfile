@@ -22,9 +22,9 @@
 
 FROM        --platform=$TARGETOS/$TARGETARCH ghcr.io/graalvm/jdk-community:latest
 
-LABEL       author="Yamayaki" maintainer="hallo@yamayaki.de"
+LABEL       author="Yamayaki" maintainer="yamayaki.de@icloud.com"
 
-LABEL       org.opencontainers.image.source="https://github.com/yamayakidevelopments/docker-images"
+LABEL       org.opencontainers.image.source="https://github.com/yamayaki1/docker-images"
 LABEL       org.opencontainers.image.licenses=MIT
 
 RUN 		microdnf install ca-certificates openssl tar bash sqlite fontconfig tzdata iproute libstdc++ -y \
