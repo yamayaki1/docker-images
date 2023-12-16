@@ -1,11 +1,11 @@
-# Yolks
+# Pterodactyl Yolks
 
-A curated collection of core images that can be used with Pterodactyl's Egg system.
-Images are hosted on `ghcr.io` and exist under the `yolks` spaces.
-All of these images are available for `linux/amd64` and `linux/arm64`.
+Collection of docker images that can be used for Pterodactyl's Egg system.
 
+## 📦 Available Images
 
-## Available Images
-* [`Java`](https://github.com/yamayaki1/agde_yolks/tree/main/java)
-  * [`GraalVM`](https://github.com/yamayaki1/docker-images/tree/main/java/latest)
-      * `ghcr.io/yamayaki1/yolks:java_graalvm`
+### ☕ Java
+[`GraalVM`](https://github.com/yamayaki1/docker-images/tree/main/java/graalvm): `ghcr.io/yamayaki1/yolks:java_graalvm`
+
+### 🧰 Box64
+[`Latest (Debian 12)`](https://github.com/yamayaki1/docker-images/tree/main/box64): `ghcr.io/yamayaki1/yolks:box64`

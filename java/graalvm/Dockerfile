@@ -27,9 +27,9 @@ LABEL       author="Yamayaki" maintainer="yamayaki.de@icloud.com"
 LABEL       org.opencontainers.image.source="https://github.com/yamayaki1/docker-images"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN 		microdnf install ca-certificates openssl tar bash sqlite fontconfig tzdata iproute libstdc++ -y \
- 			&& adduser --home /home/container container
+RUN 		microdnf install ca-certificates openssl tar bash sqlite fontconfig tzdata iproute libstdc++ -y
 
+RUN         useradd -d /home/container -m container
 USER        container
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
