@@ -1,5 +1,3 @@
-#!/bin/bash
-
 #
 # Copyright (c) 2021 Matthew Penner
 #
@@ -22,28 +20,20 @@
 # SOFTWARE.
 #
 
-# Default the TZ environment variable to UTC.
-TZ=${TZ:-UTC}
-export TZ
+FROM        --platform=$TARGETOS/$TARGETARCH mcr.microsoft.com/openjdk/jdk:17-ubuntu
 
-# Set environment variable that holds the Internal Docker IP
-INTERNAL_IP=$(ip route get 1 | awk '{print $(NF-2);exit}')
-export INTERNAL_IP
+LABEL       author="Yamayaki" maintainer="yamayaki.de@icloud.com"
 
-# Switch to the container's working directory
-cd /home/container || exit 1
+LABEL       org.opencontainers.image.source="https://github.com/yamayaki1/docker-images"
+LABEL       org.opencontainers.image.licenses=MIT
 
-# Print Java version
-printf "\033[1m\033[33mcontainer@pelican~ \033[0mjava -version\n"
-java -version
+RUN         apt update -y \
+                && apt install lsof curl ca-certificates openssl tar sqlite3 bash fontconfig libfreetype6 tzdata iproute2 libstdc++6 -y \
+                && useradd -d /home/container -m container
 
-# Convert all of the "{{VARIABLE}}" parts of the command into the expected shell
-# variable format of "${VARIABLE}" before evaluating the string and automatically
-# replacing the values.
-PARSED=$(echo "${STARTUP}" | sed -e 's/{{/${/g' -e 's/}}/}/g' | eval echo "$(cat -)")
+USER        container
+ENV         USER=container HOME=/home/container
+WORKDIR     /home/container
 
-# Display the command we're running in the output, and then execute it with the env
-# from the container itself.
-printf "\033[1m\033[33mcontainer@pelican~ \033[0m%s\n" "$PARSED"
-# shellcheck disable=SC2086
-eval ${PARSED}
+COPY        ./../entrypoint.sh /entrypoint.sh
+CMD         [ "/bin/bash", "/entrypoint.sh" ]

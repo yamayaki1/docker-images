@@ -1,11 +1,10 @@
-# Yolks
+# Pelican Yolks
 
-A curated collection of core images that can be used with Pterodactyl's Egg system.
-Images are hosted on `ghcr.io` and exist under the `yolks` spaces.
-All of these images are available for `linux/amd64` and `linux/arm64`.
+Collection of docker images that can be used for Pelican's Egg system.
 
+## 📦 Available Images
 
-## Available Images
-* [`Java`](https://github.com/StrilonNET/agde_yolks/tree/main/java)
-  * [`GraalVM`](https://github.com/StrilonNET/docker-images/tree/main/java/latest)
-      * `ghcr.io/yamayaki1/yolks:java_graalvm`
+### ☕ Java
+[`Microsoft JDK 17`](https://github.com/yamayaki1/docker-images/tree/main/java/ms17): `ghcr.io/yamayaki1/yolks:java_ms17`
+[`Microsoft JDK 21`](https://github.com/yamayaki1/docker-images/tree/main/java/ms21): `ghcr.io/yamayaki1/yolks:java_ms21`
+

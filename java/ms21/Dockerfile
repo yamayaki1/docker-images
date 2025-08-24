@@ -20,15 +20,16 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$TARGETOS/$TARGETARCH ghcr.io/graalvm/jdk:latest
+FROM        --platform=$TARGETOS/$TARGETARCH mcr.microsoft.com/openjdk/jdk:21-ubuntu
 
-LABEL       author="Yamayaki" maintainer="hallo@yamayaki.de"
+LABEL       author="Yamayaki" maintainer="yamayaki.de@icloud.com"
 
 LABEL       org.opencontainers.image.source="https://github.com/yamayaki1/docker-images"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN 		microdnf install ca-certificates openssl tar bash sqlite fontconfig tzdata iproute libstdc++ -y \
- 			&& adduser --home /home/container container
+RUN         apt update -y \
+                && apt install lsof curl ca-certificates openssl tar sqlite3 bash fontconfig libfreetype6 tzdata iproute2 libstdc++6 -y \
+                && useradd -d /home/container -m container
 
 USER        container
 ENV         USER=container HOME=/home/container
