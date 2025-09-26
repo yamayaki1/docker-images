@@ -16,7 +16,7 @@ jobs:
         tag:
           - ms17
           - ms21
-          - lb25
+          - ms25
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-qemu-action@v3
