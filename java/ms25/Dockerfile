@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$TARGETOS/$TARGETARCH bellsoft/liberica-openjdk-debian:25
+FROM        --platform=$TARGETOS/$TARGETARCH mcr.microsoft.com/openjdk/jdk:25-ubuntu
 
 LABEL       author="Yamayaki" maintainer="yamayaki.de@icloud.com"
 
